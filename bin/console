@@ -9,6 +9,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 $container = new ContainerBuilder();
 
+$container->setParameter('root_dir', __DIR__ . '/../');
+$container->setParameter('var_dir', __DIR__ . '/../var');
+
 $loader = new YamlFileLoader($container, new FileLocator());
 $loader->load(__DIR__ . '/../config/services.yml');
 

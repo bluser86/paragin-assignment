@@ -10,14 +10,13 @@ class Application extends BaseApplication
      * Application constructor.
      *
      * @param iterable $commands
-     * @param string $version
      */
     public function __construct(iterable $commands)
     {
         parent::__construct('Paragin Assignment CLI Tool', '1.0.0');
 
         foreach ($commands as $command) {
-            $this->addCommands($command);
+            $this->add($command);
         }
     }
 }

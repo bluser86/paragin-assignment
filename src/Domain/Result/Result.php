@@ -40,7 +40,7 @@ class Result
     }
 
     /**
-     * Retrieve a score for a particular question
+     * Retrieve a score for a particular question.
      *
      * @param int $i
      *
@@ -48,7 +48,7 @@ class Result
      */
     public function getScoreAt(int $i): float
     {
-        return $this->scores[$i];
+        return $this->scores[$i - 1];
     }
 
     /**

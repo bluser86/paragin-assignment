@@ -1,12 +1,20 @@
 services:
   _defaults:
     autowire: true
+    bind:
+      $varDir: '%var_dir%'
 
   _instanceof:
     Symfony\Component\Console\Command\Command:
       tags: ['command']
 
+  Paragin\Cli\:
+    resource: '../src'
+    exclude:
+      - '../src/Domain/Result/{Result,ResultCollection}'
+      - '../src/Exception'
+
   Paragin\Cli\Application:
     public: true
     arguments:
-    - !tagged command
+      - !tagged_iterator command

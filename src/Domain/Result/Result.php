@@ -32,6 +32,14 @@ class Result
     }
 
     /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * @return array
      */
     public function getScores(): array
@@ -52,10 +60,12 @@ class Result
     }
 
     /**
-     * @return string
+     * Retrieve the total sum of each individual score per question.
+     *
+     * @return float
      */
-    public function getName(): string
+    public function getTotalScore(): float
     {
-        return $this->name;
+        return array_sum($this->scores);
     }
 }

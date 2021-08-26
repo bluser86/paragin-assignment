@@ -47,4 +47,14 @@ class ResultCollection
     {
         return $this->maximumScores;
     }
+
+    /**
+     * Returns the sum of each indididual maximum score.
+     *
+     * @return float
+     */
+    public function getTotalMaximumScore(): float
+    {
+        return array_sum($this->maximumScores);
+    }
 }

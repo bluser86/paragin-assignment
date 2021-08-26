@@ -1,3 +1,7 @@
+parameters:
+  caesura: 0.7
+  floor: 0.2
+
 services:
   _defaults:
     autowire: true
@@ -18,3 +22,8 @@ services:
     public: true
     arguments:
       - !tagged_iterator command
+
+  Paragin\Cli\Domain\Result\Grader\ResultGrader:
+    bind:
+      $caesura: '%caesura%'
+      $floor: '%floor%'

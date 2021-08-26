@@ -7,6 +7,7 @@ namespace Paragin\Cli\Command;
 use Paragin\Cli\Domain\Result\Grader\ResultGrader;
 use Paragin\Cli\Domain\Result\Parser\ResultParser;
 use Paragin\Cli\Domain\Result\ResultCollection;
+use Paragin\Cli\Domain\Result\Statistics\QuestionStatistics;
 use Paragin\Cli\Helper\StatisticsHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -33,9 +34,9 @@ class QuestionStatsCommand extends Command
     private $resultGrader;
 
     /**
-     * @var StatisticsHelper
+     * @var QuestionStatistics
      */
-    private $statisticsHelper;
+    private $questionStatistics;
 
     /**
      * @var string
@@ -46,16 +47,17 @@ class QuestionStatsCommand extends Command
      * QuestionStatsCommand constructor.
      * @param ResultParser $resultParser
      * @param ResultGrader $resultGrader
-     * @param StatisticsHelper $statisticsHelper
+     * @param QuestionStatistics $questionStatistics
+     *
      * @param string $varDir
      */
-    public function __construct(ResultParser $resultParser, ResultGrader $resultGrader, StatisticsHelper $statisticsHelper, string $varDir)
+    public function __construct(ResultParser $resultParser, ResultGrader $resultGrader, QuestionStatistics $questionStatistics, string $varDir)
     {
         parent::__construct('question-stats');
 
         $this->resultParser = $resultParser;
         $this->resultGrader = $resultGrader;
-        $this->statisticsHelper = $statisticsHelper;
+        $this->questionStatistics = $questionStatistics;
         $this->varDir = $varDir;
     }
 
@@ -134,8 +136,8 @@ class QuestionStatsCommand extends Command
         $scores = $resultCollection->getScoresAt($question);
         $max = $resultCollection->getMaximumScoreAt($question);
 
-        $r = $this->statisticsHelper->pearsonCorrelation($scores, $grades);
-        $p = $this->statisticsHelper->pValue($scores, $max);
+        $r = $this->questionStatistics->calculatePearsonCorrelation($scores, $grades);
+        $p = $this->questionStatistics->calculatePValue($scores, $max);
 
         $table->addRow([
             $question,

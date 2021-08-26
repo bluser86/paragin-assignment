@@ -57,4 +57,38 @@ class ResultCollection
     {
         return array_sum($this->maximumScores);
     }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfQuestions(): int
+    {
+        return count($this->maximumScores);
+    }
+
+    /**
+     * @param int $question
+     *
+     * @return float[]
+     */
+    public function getScoresAt(int $question): array
+    {
+        $scores = [];
+
+        foreach ($this->results as $result) {
+            $scores[] = $result->getScoreAt($question);
+        }
+
+        return $scores;
+    }
+
+    /**
+     * @param int $question
+     *
+     * @return float
+     */
+    public function getMaximumScoreAt(int $question): float
+    {
+        return $this->maximumScores[$question - 1];
+    }
 }

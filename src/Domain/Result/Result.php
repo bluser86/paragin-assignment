@@ -50,13 +50,13 @@ class Result
     /**
      * Retrieve a score for a particular question.
      *
-     * @param int $i
+     * @param int $question
      *
      * @return float
      */
-    public function getScoreAt(int $i): float
+    public function getScoreAt(int $question): float
     {
-        return $this->scores[$i - 1];
+        return $this->scores[$question - 1];
     }
 
     /**

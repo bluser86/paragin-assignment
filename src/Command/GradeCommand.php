@@ -35,15 +35,16 @@ class GradeCommand extends Command
      * GradeCommand constructor.
      *
      * @param ResultParser $resultParser
+     * @param ResultGrader $resultGrader
      * @param string $varDir
      */
     public function __construct(ResultParser $resultParser, ResultGrader $resultGrader, string $varDir)
     {
-        parent::__construct('grade');
+        parent::__construct('grades');
 
         $this->resultParser = $resultParser;
-        $this->varDir = $varDir;
         $this->resultGrader = $resultGrader;
+        $this->varDir = $varDir;
     }
 
     /**

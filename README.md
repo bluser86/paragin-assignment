@@ -29,7 +29,7 @@ Or you can create an overview of all questions by running:
 
 ### Unit test
 
-There is one whole unit test that you can run by executing:
+There are a couple of unit tests that you can run by executing:
 
 `./vendor/bin/phpunit tests`
 

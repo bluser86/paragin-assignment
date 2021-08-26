@@ -52,7 +52,7 @@ class StatisticsHelper
     public function pearsonCorrelation(array $scores, array $grades): float
     {
         if (count($scores) !== count($grades)) {
-            throw new StatisticsCalculationException('Cannot find Pearson correlation because the number of items in the scores and grades list do not match.', $e);
+            throw new StatisticsCalculationException('Cannot find Pearson correlation because the number of items in the scores and grades list do not match.');
         }
 
         try {
@@ -112,11 +112,13 @@ class StatisticsHelper
      * @param array $numbers
      *
      * @return float
+     *
+     * @throws StatisticsCalculationException
      */
     public function average(array $numbers): float
     {
         if (count($numbers) === 0) {
-            throw new \InvalidArgumentException('Can not find average on an empty list of numbers.');
+            throw new StatisticsCalculationException('Can not find average on an empty list of numbers.');
         }
 
         return array_sum($numbers) / count($numbers);

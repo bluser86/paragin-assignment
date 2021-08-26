@@ -80,7 +80,11 @@ class StatisticsHelper
             $denominatorGrades += pow($grade - $gradeAvg, 2);
         }
 
-        return $numerator / (sqrt($denominatorScores * $denominatorGrades));
+        if ($denominatorScores <= 0 || $denominatorGrades <= 0) {
+            return 0;
+        }
+
+        return $numerator / sqrt($denominatorScores * $denominatorGrades);
     }
 
     /**

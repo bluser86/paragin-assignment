@@ -51,6 +51,12 @@ any errors on my part. Another idea I had was to make a comparison between my ow
 library but due to time constraints I decided against this.
 
 I've tried to apply a good amount of separation of concerns in order to increase testability of the code
-to make the code better extensible in the future. I haven't used any interfaces simply because of the 
+and to make the code better extensible in the future. I haven't used any interfaces simply because of the 
 simple nature of the program, but a couple of places where an interface could be used is the ResultGrader
 in order to support different grading formulae that could easily be plugged in using the DI container.
+
+For ease of use I've hardcoded the path to the CSV file in the commands so you don't have to type them 
+as arguments to the command. If this were a live example however I would have added the CSv path as an
+argument to the command. On the topic of the test data, again for ease of use, I decided to include the 
+data in the repository. In a production environment I would have left the data out of the repo and allowed 
+the user to supply a path to the test results CSV file.

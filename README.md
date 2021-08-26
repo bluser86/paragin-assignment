@@ -31,7 +31,7 @@ Or you can create an overview of all questions by running:
 
 There is one whole unit test that you can run by executing:
 
-`./vendor/bin/phpunit`
+`./vendor/bin/phpunit tests`
 
 ### Choices made
 

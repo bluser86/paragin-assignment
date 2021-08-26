@@ -27,6 +27,12 @@ Or you can create an overview of all questions by running:
 
 `php bin/console question-stats -a`
 
+### Unit test
+
+There is one whole unit test that you can run by executing:
+
+`./vendor/bin/phpunit`
+
 ### Choices made
 
 First off thank you for allowing me to showcase my abilities with this assignment. There are 

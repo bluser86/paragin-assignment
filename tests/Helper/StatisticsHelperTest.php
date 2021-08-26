@@ -5,6 +5,11 @@ namespace Paragin\Cli\Helper;
 use Paragin\Cli\Exception\Statistics\StatisticsCalculationException;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class StatisticsHelperTest
+ *
+ * @package Paragin\Cli\Helper
+ */
 class StatisticsHelperTest extends TestCase
 {
     /**

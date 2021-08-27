@@ -18,6 +18,7 @@ class QuestionStatistics
 
     /**
      * QuestionStatistics constructor.
+     *
      * @param StatisticsHelper $statisticsHelper
      */
     public function __construct(StatisticsHelper $statisticsHelper)
@@ -26,8 +27,8 @@ class QuestionStatistics
     }
 
     /**
-     * @param array $scores
-     * @param array $grades
+     * @param float[] $scores All test candidate scores for a particular question
+     * @param float[] $grades All test candidate grades
      *
      * @return float
      */
@@ -37,8 +38,8 @@ class QuestionStatistics
     }
 
     /**
-     * @param array $scores
-     * @param float $max
+     * @param float[] $scores All test candidate scores for a particular question
+     * @param float   $max    The maximum score for that same question
      *
      * @return float
      */

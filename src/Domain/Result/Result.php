@@ -22,8 +22,8 @@ class Result
     /**
      * Result constructor.
      *
-     * @param string $name
-     * @param float[] $scores
+     * @param string  $name   The test candidate's name
+     * @param float[] $scores The test candidate's scores in order of questions
      */
     public function __construct(string $name, array $scores)
     {
@@ -50,7 +50,7 @@ class Result
     /**
      * Retrieve a score for a particular question.
      *
-     * @param int $question
+     * @param int $question The question number to retrieve the score for
      *
      * @return float
      */

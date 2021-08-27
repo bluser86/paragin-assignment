@@ -14,8 +14,8 @@ class StatisticsCalculationException extends \RuntimeException
     /**
      * StatisticsCalculationException constructor.
      *
-     * @param string $message
-     * @param Throwable|null $previous
+     * @param string         $message  The exception message
+     * @param Throwable|null $previous Any previous exception thrown
      */
     public function __construct(string $message = "", Throwable $previous = null)
     {

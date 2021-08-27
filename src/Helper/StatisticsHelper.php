@@ -16,8 +16,8 @@ class StatisticsHelper
      *
      * @param float $score   Total score of a test result
      * @param float $max     Maximum possible score of a test result
-     * @param float $caesura Caesura breakpoint
-     * @param float $floor   Lowest grade floor
+     * @param float $caesura Caesura breakpoint in decimal percentage
+     * @param float $floor   Lowest grade floor in decimal percentage
      *
      * @return float
      */
@@ -42,8 +42,8 @@ class StatisticsHelper
     /**
      * Calculates Pearson correlation of a question using the average scores and individual grades as samples.
      *
-     * @param array $scores
-     * @param array $grades
+     * @param float[] $scores All test candidate scores for a particular question
+     * @param float[] $grades All grades of all tests
      *
      * @return float
      *
@@ -70,7 +70,7 @@ class StatisticsHelper
         $numerator = 0;
         $denominatorScores = 0;
         $denominatorGrades = 0;
-        for($i = 0; $i < count($scores); $i++) {
+        for ($i = 0; $i < count($scores); $i++) {
             $score = $scores[$i];
             $grade = $grades[$i];
 
@@ -90,8 +90,8 @@ class StatisticsHelper
     /**
      * Calculates the P value of a question.
      *
-     * @param array $scores All individual scores for a particular question.
-     * @param float $max    The maximum achievable score for the question.
+     * @param float[] $scores All individual scores for a particular question.
+     * @param float   $max    The maximum achievable score for the question.
      *
      * @return float
      *
@@ -109,7 +109,7 @@ class StatisticsHelper
     /**
      * Quick and dirty average calculation for any list of numbers.
      *
-     * @param array $numbers
+     * @param float[] $numbers List of numbers to calculate average for.
      *
      * @return float
      *

@@ -44,11 +44,12 @@ class QuestionStatsCommand extends Command
 
     /**
      * QuestionStatsCommand constructor.
-     * @param ResultParser $resultParser
-     * @param ResultGrader $resultGrader
+     *
+     * @param ResultParser       $resultParser
+     * @param ResultGrader       $resultGrader
      * @param QuestionStatistics $questionStatistics
      *
-     * @param string $varDir
+     * @param string             $varDir
      */
     public function __construct(ResultParser $resultParser, ResultGrader $resultGrader, QuestionStatistics $questionStatistics, string $varDir)
     {
@@ -71,7 +72,7 @@ class QuestionStatsCommand extends Command
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      *
      * @return int
@@ -90,7 +91,7 @@ class QuestionStatsCommand extends Command
         $resultCollection = $this->resultParser->getResults($this->varDir . '/Assignment.csv');
 
         $grades = [];
-        foreach($resultCollection->getResults() as $result) {
+        foreach ($resultCollection->getResults() as $result) {
             $grades[] = $this->resultGrader->calculateGrade($result->getTotalScore(), $resultCollection->getTotalMaximumScore());
         }
 
@@ -114,8 +115,8 @@ class QuestionStatsCommand extends Command
 
     /**
      * @param ResultCollection $resultCollection
-     * @param array $grades
-     * @param Table $table
+     * @param float[]          $grades
+     * @param Table            $table
      */
     private function renderFull(ResultCollection $resultCollection, array $grades, Table $table): void
     {
@@ -126,9 +127,9 @@ class QuestionStatsCommand extends Command
 
     /**
      * @param ResultCollection $resultCollection
-     * @param array $grades
-     * @param Table $table
-     * @param int $question
+     * @param float[]          $grades
+     * @param Table            $table
+     * @param int              $question
      */
     private function renderSingle(ResultCollection $resultCollection, array $grades, Table $table, int $question): void
     {

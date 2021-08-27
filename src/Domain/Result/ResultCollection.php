@@ -23,8 +23,8 @@ class ResultCollection
     /**
      * ResultCollection constructor.
      *
-     * @param Result[] $results
-     * @param float[] $maximumScores
+     * @param Result[] $results       A list of Result objects for each test candidate
+     * @param float[]  $maximumScores The maximum scores for each question
      */
     public function __construct(array $results, array $maximumScores)
     {
@@ -49,7 +49,7 @@ class ResultCollection
     }
 
     /**
-     * Returns the sum of each indididual maximum score.
+     * Returns the sum of each individual maximum score.
      *
      * @return float
      */
@@ -67,7 +67,9 @@ class ResultCollection
     }
 
     /**
-     * @param int $question
+     * Retrieves a list of scores for the given question number.
+     *
+     * @param int $question The question number to retrieve a list of scores for
      *
      * @return float[]
      */
@@ -83,7 +85,9 @@ class ResultCollection
     }
 
     /**
-     * @param int $question
+     * Get maximum score for a particular question
+     *
+     * @param int $question The number of the question to retrieve the maximum score for
      *
      * @return float
      */

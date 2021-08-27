@@ -4,6 +4,11 @@ namespace Paragin\Cli;
 
 use Symfony\Component\Console\Application as BaseApplication;
 
+/**
+ * Application entry point
+ *
+ * @package Paragin\Cli
+ */
 class Application extends BaseApplication
 {
     /**

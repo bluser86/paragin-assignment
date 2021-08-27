@@ -35,15 +35,15 @@ class ResultParser
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
                 if ($row === 2) {
                     // max question score row
-                    for($i = 1; $i < count($data); $i++) {
-                        $maxScores[] = (float) $data[$i];
+                    for ($i = 1; $i < count($data); $i++) {
+                        $maxScores[] = (float)$data[$i];
                     }
                 } else if ($row > 2) {
                     // regular score rows
                     $name = $data[0];
                     $scores = [];
-                    for($i = 1; $i < count($data); $i++) {
-                        $scores[] = (float) $data[$i];
+                    for ($i = 1; $i < count($data); $i++) {
+                        $scores[] = (float)$data[$i];
                     }
 
                     $results[] = new Result($name, $scores);

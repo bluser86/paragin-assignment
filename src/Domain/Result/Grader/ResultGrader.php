@@ -30,8 +30,8 @@ class ResultGrader
      * ResultGrader constructor.
      *
      * @param StatisticsHelper $statisticsHelper
-     * @param float $caesura
-     * @param float $floor
+     * @param float            $caesura The caesura at which the linear graph bends in decimal percentage
+     * @param float            $floor   The decimal percentage of the score to receive the lowest grade
      */
     public function __construct(StatisticsHelper $statisticsHelper, float $caesura, float $floor)
     {
@@ -41,8 +41,8 @@ class ResultGrader
     }
 
     /**
-     * @param float $score
-     * @param float $maxScore
+     * @param float $score    The test candidates total score
+     * @param float $maxScore The maximum achievable score on the test
      *
      * @return float
      */

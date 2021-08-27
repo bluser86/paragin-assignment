@@ -36,7 +36,7 @@ class GradeCommand extends Command
      *
      * @param ResultParser $resultParser
      * @param ResultGrader $resultGrader
-     * @param string $varDir
+     * @param string       $varDir
      */
     public function __construct(ResultParser $resultParser, ResultGrader $resultGrader, string $varDir)
     {
@@ -56,12 +56,12 @@ class GradeCommand extends Command
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      *
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $resultCollection = $this->resultParser->getResults($this->varDir . '/Assignment.csv');
 
@@ -71,7 +71,7 @@ class GradeCommand extends Command
             'Grade',
         ]);
 
-        foreach($resultCollection->getResults() as $result) {
+        foreach ($resultCollection->getResults() as $result) {
             $grade = $this->resultGrader->calculateGrade($result->getTotalScore(), $resultCollection->getTotalMaximumScore());
 
             $table->addRow([$result->getName(), number_format($grade, 1)]);

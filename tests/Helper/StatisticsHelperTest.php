@@ -114,15 +114,15 @@ class StatisticsHelperTest extends TestCase
     }
 
     /**
-     * @param $score
-     * @param $max
-     * @param $caesura
-     * @param $floor
-     * @param $expected
+     * @param float $score    The test candidate total score
+     * @param float $max      The maximum achievable score
+     * @param float $caesura  The caesura in decimal percentage
+     * @param float $floor    The lowest score that will receive the lowest grade in decimal percentage
+     * @param float $expected The expected outcome
      *
      * @dataProvider nonLinearCaesuraGradeProvider
      */
-    public function testNonLinearCaesuraGradeCalculation($score, $max, $caesura, $floor, $expected): void
+    public function testNonLinearCaesuraGradeCalculation(float $score, float $max, float $caesura, float $floor, float $expected): void
     {
         $helper = new StatisticsHelper();
 

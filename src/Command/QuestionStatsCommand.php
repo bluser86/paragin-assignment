@@ -8,6 +8,7 @@ use Paragin\Cli\Domain\Result\Grader\ResultGrader;
 use Paragin\Cli\Domain\Result\Parser\ResultParser;
 use Paragin\Cli\Domain\Result\ResultCollection;
 use Paragin\Cli\Domain\Result\Statistics\QuestionStatistics;
+use Paragin\Cli\Exception\Statistics\StatisticsCalculationException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -136,8 +137,17 @@ class QuestionStatsCommand extends Command
         $scores = $resultCollection->getScoresAt($question);
         $max = $resultCollection->getMaximumScoreAt($question);
 
-        $r = $this->questionStatistics->calculatePearsonCorrelation($scores, $grades);
-        $p = $this->questionStatistics->calculatePValue($scores, $max);
+        try {
+            $r = $this->questionStatistics->calculatePearsonCorrelation($scores, $grades);
+        } catch (StatisticsCalculationException $e) {
+            $r = 'NaN';
+        }
+
+        try {
+            $p = $this->questionStatistics->calculatePValue($scores, $max);
+        } catch (StatisticsCalculationException $e) {
+            $p = 'NaN';
+        }
 
         $table->addRow([
             $question,

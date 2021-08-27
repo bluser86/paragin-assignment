@@ -2,6 +2,7 @@
 
 namespace Paragin\Cli\Domain\Result\Statistics;
 
+use Paragin\Cli\Exception\Statistics\StatisticsCalculationException;
 use Paragin\Cli\Helper\StatisticsHelper;
 
 /**
@@ -31,6 +32,8 @@ class QuestionStatistics
      * @param float[] $grades All test candidate grades
      *
      * @return float
+     *
+     * @throws StatisticsCalculationException
      */
     public function calculatePearsonCorrelation(array $scores, array $grades): float
     {
@@ -42,6 +45,8 @@ class QuestionStatistics
      * @param float   $max    The maximum score for that same question
      *
      * @return float
+     *
+     * @throws StatisticsCalculationException
      */
     public function calculatePValue(array $scores, float $max): float
     {

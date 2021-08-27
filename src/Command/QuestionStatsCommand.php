@@ -69,7 +69,7 @@ class QuestionStatsCommand extends Command
     {
         $this->setDescription('Displays an overview of different statistics per question or all questions.')
             ->addOption('full', 'a', InputOption::VALUE_NONE | InputOption::VALUE_NONE, 'Display an overview of all questions')
-            ->addArgument('question', InputArgument::OPTIONAL, 'The nubmer of the question to run some stats on');
+            ->addArgument('question', InputArgument::OPTIONAL, 'The number of the question to run some stats on');
     }
 
     /**
